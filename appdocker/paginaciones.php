@@ -137,15 +137,15 @@
         FROM trabajadores AS tr JOIN puestos AS pt ON tr.Id_Puesto = pt.Id_Puesto LIMIT $inicio, $registros_por_pagina";
         $resultados = $conexion->query($leerdatos);
         if($resultados->num_rows == 0){
-            echo "<tr><td colspan='4'><img src='Imágenes/Advice.png' width='15' alt='Advertencia'/> Sin datos que mostrar.</td></tr>";
+            echo "<tr><td colspan='4'><img src='../Imágenes/Advice.png' width='15' alt='Advertencia'/> Sin datos que mostrar.</td></tr>";
         } else {
             $row = $resultados->fetch_assoc();
             $i = 1;
             do {
                 if($row["Nombre"] == "Administrador"){
-                    echo "<tr><td colspan='4'><img src='Imágenes/Advice.png' width='15' alt='Advertencia'/> La cuenta de {$row["Nombre"]} no se puede borrar ni modificar.</td></tr>";
+                    echo "<tr><td colspan='4'><img src='../Imágenes/Advice.png' width='15' alt='Advertencia'/> La cuenta de {$row["Nombre"]} no se puede borrar ni modificar.</td></tr>";
                 } else if($usuario == $row["Nombre"]){
-                    echo "<tr><td colspan='4'><img src='Imágenes/Advice.png' width='15' alt='Advertencia'/> El trabajador {$row["Nombre"]} tiene la cuenta abierta.</td></tr>";
+                    echo "<tr><td colspan='4'><img src='../Imágenes/Advice.png' width='15' alt='Advertencia'/> El trabajador {$row["Nombre"]} tiene la cuenta abierta.</td></tr>";
                 } else {
                     echo "<tr><form action='".htmlentities($_SERVER["PHP_SELF"])."' method='get'>
                     <input type='hidden' name='idtrabajador$i' id='idtrabajador$i' value='{$row["Id_Trabajador"]}'/>
@@ -256,16 +256,16 @@
         FROM trabajadores AS tr JOIN puestos AS pt ON tr.Id_Puesto = pt.Id_Puesto LIMIT $inicio, $registros_por_pagina";
         $resultados = $conexion->query($leerdatos);
         if($resultados->num_rows == 0){
-            echo "<tr><td colspan='4'><img src='Imágenes/Advice.png' width='15' alt='Advertencia'/> Sin datos que mostrar.</td></tr>";
+            echo "<tr><td colspan='4'><img src='../Imágenes/Advice.png' width='15' alt='Advertencia'/> Sin datos que mostrar.</td></tr>";
         } else {
             $row = $resultados->fetch_assoc();
             $i = 1;
             do {
                 echo "<tr><th colspan='2'>TRABAJADOR Nº {$row["Id_Trabajador"]}</th></tr>";
                 if($row["Nombre"] == "Administrador"){
-                    echo "<tr><td colspan='2'><img src='Imágenes/Advice.png' width='15' alt='Advertencia'/> La cuenta de {$row["Nombre"]} no se puede borrar ni modificar.</td></tr>";
+                    echo "<tr><td colspan='2'><img src='../Imágenes/Advice.png' width='15' alt='Advertencia'/> La cuenta de {$row["Nombre"]} no se puede borrar ni modificar.</td></tr>";
                 } else if($usuario == $row["Nombre"]){
-                    echo "<tr><td colspan='2'><img src='Imágenes/Advice.png' width='15' alt='Advertencia'/> El trabajador {$row["Nombre"]} tiene la cuenta abierta.</td></tr>";
+                    echo "<tr><td colspan='2'><img src='../Imágenes/Advice.png' width='15' alt='Advertencia'/> El trabajador {$row["Nombre"]} tiene la cuenta abierta.</td></tr>";
                 } else {
                     echo "<tr><form action='".htmlentities($_SERVER["PHP_SELF"])."' method='get'>
                     <input type='hidden' name='idtrabajador$i' id='idtrabajador$i' value='{$row["Id_Trabajador"]}'/>

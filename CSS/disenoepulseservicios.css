@@ -227,12 +227,21 @@ footer {
     #closenav {
         grid-area: closenav;
     }
-    main.servicios {
-        padding-top: 30vh;
-    }
     main.servicios h1 {
         margin-top: 15vh;
         margin-bottom: 3vh;
+        font-size: 32px;
+    }
+    main.servicios .sectores {
+        margin-left: 2%;
+        margin-right: 2%;
+        padding-bottom: 5%;
+    }
+    main.servicios .sectores .servicio {
+        margin: 2%;
+        width: 96%;
+        height: auto;
+        display: block;
     }
     footer {
         display: grid; 
@@ -292,9 +301,6 @@ footer {
     }
     #closenav {
         grid-area: closenav;
-    }
-    main.servicios {
-        padding-top: 40vh;
     }
     main.servicios h1 {
         margin-top: 15vh;

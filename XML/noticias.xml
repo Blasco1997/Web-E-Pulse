@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<telediario>
+	<noticia>
+		<numNoticia>1</numNoticia>
+		<tituloNoticia>Prueba de mando teledirigido para un camión de juguete con Arduino</tituloNoticia>
+		<enlaceNoticia>https://www.e-pulse.org/</enlaceNoticia>
+		<descripcionNoticia>Prueba de mando teledirigido para un camión de juguete con Arduino</descripcionNoticia>
+		<fechaPublicacion>2024-12-24</fechaPublicacion>
+		<autor>Ignacio Bastida Cuéllar</autor>
+	</noticia>
+</telediario>

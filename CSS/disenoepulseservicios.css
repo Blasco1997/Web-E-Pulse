@@ -1,0 +1,444 @@
+/*CSS Document*/
+@charset "utf-8";
+/* Variables CSS */
+:root {
+    --rojo: #c00000;
+    --rosado: #f3c4c480;
+    --blanco: white;
+    --negro: black;
+    --negrotransparente: #00000094;
+    --gris: rgb(192, 192, 192);
+    --grisclaro: rgb(224, 224, 224);
+    --azuloscuro: #001c5c;
+    --letra: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+/* Formato para PC */
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: var(--letra);
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    background-color: var(--rosado);
+    overflow-x: hidden;
+}
+header {
+    height: 18vh;
+    position: fixed;
+    z-index: 2;
+    width: 100%;
+    background-color: var(--blanco);
+    border-bottom: 2px solid var(--negro);
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    grid-template-rows: 1fr; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+    'logo navegacion'; 
+}
+.logo {
+    grid-area: logo;
+    vertical-align: middle;
+}
+.logo img {
+    width: 30vh;
+    margin: 10px;
+    margin-left: 20%;
+    animation-name: aparecerLogoPC;
+    animation-duration: 1s;
+}
+.navegacion {
+    grid-area: navegacion;
+    vertical-align: middle;
+}
+.navegacion ul {
+    opacity: 0;
+    text-align: right;
+    margin-top: 18vh;
+    transform: translateY(-11vh);
+    margin-right: 20%;
+    animation: aparecerNavegacionPC 1s ease-in-out 1s forwards;
+}
+.navegacion ul li {
+    display: inline-block;
+    position: relative;
+    margin: 0 10px;
+    padding: 5px;
+}
+.navegacion ul li a {
+    text-decoration: none;
+    color: var(--negro);
+}
+.navegacion ul li.seleccionado, .navegacion ul li a:hover {
+    color: var(--rojo);
+}
+.navegacion ul li span img {
+    transform: translate(0px, 10px);
+}
+.navegacion ul li ul {
+    display: none;
+    position: absolute;
+    min-width: 200px;
+    text-align: left;
+    z-index: 12;
+    background-color: var(--blanco);
+    border: 2px solid var(--negro);
+    transform: translate(0px, 2px);
+}
+.navegacion ul li:hover > ul {
+    display: block;
+}
+.navegacion ul li ul li {
+    position: relative;
+}
+.navegacion ul li ul li a {
+    color: var(--negro);
+}
+.navegacion ul li ul li a:hover {
+    color: var(--rojo);
+}
+#navegacionmovil, #closenav {
+    display: none;
+    text-align: right;
+    margin-top: 20px;
+    margin-right: 5vh;
+}
+#navegacionmovil:hover, #closenav:hover {
+    color: var(--rojo);
+}
+main.servicios {
+    padding-top: 20vh;
+    height: auto;
+}
+main.servicios h1 {
+    opacity: 0;
+    font-size: 48px;
+    text-align: center;
+    animation: aparecerTituloServicios 1s ease-in-out 2s forwards;
+}
+main.servicios .sectores {
+    margin-left: 13%;
+    margin-right: 13%;
+    padding-bottom: 5%;
+}
+main.servicios .sectores .servicio {
+    opacity: 0;
+    margin: 2%;
+    width: 44%;
+    height: 15vh;
+    display: inline-block;
+    position: relative;
+    vertical-align: top;
+    background-color: var(--blanco);
+    border: 2px solid var(--negro);
+    border-radius: 20px;
+}
+main.servicios .sectores .servicio h2 {
+    margin: 0px;
+    padding: 10px 0;
+    text-align: center;
+    background-color: var(--grisclaro);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+main.servicios .sectores .servicio p {
+    margin: 15px;
+}
+footer {
+    background-color: var(--azuloscuro);
+    color: var(--blanco);
+    font-weight: bold;
+    text-align: center;
+    padding: 5vh;
+    display: grid; 
+    grid-template-columns: 1fr 1fr 1fr; 
+    grid-template-rows: 1fr; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+    'colaborador copyright correos';
+}
+.colaborador {
+    grid-area: colaborador;
+    opacity: 0;
+    animation: aparecerEmpresaColaboradora 1s ease-in-out 9s forwards;
+}
+.copyright {
+    grid-area: copyright;
+    opacity: 0;
+    animation: aparecerCopyright 1s ease-in-out 10s forwards;
+}
+.copyright p {
+    margin-top: 5vh;
+}
+.correos {
+    grid-area: correos;
+    opacity: 0;
+    animation: aparecerCorreos 1s ease-in-out 11s forwards;
+}
+.colaborador img, .correos img {
+    width: 50%;
+}
+/* Formato para Tablet o iPad */
+@media screen and (min-width: 600px) and (max-width: 1024px){
+    header {
+        height: 30vh;
+        display: grid;
+        grid-template-columns: 1fr 0fr 0fr; 
+        grid-template-rows: 1fr 1fr; 
+        gap: 0px 0px; 
+        grid-template-areas: 
+        'logo navegacionmovil closenav'
+        'navegacion navegacion navegacion'; 
+    }
+    .logo {
+        grid-area: logo;
+    }
+    .logo img {
+        margin-left: 5%;
+        animation-name: aparecerLogoTablet;
+        animation-duration: 2s;
+    }
+    .navegacion {
+        grid-area: navegacion;
+        width: 100%;
+        height: 250vh;
+        display: none;
+        background-color: var(--blanco);
+    }
+    .navegacion ul {
+        text-align: center;
+        transform: translate(0px, 30px);
+        margin-right: 5%;
+    }
+    .navegacion ul li {
+        display: block;
+        margin: 10px;
+        padding: 5px;
+    }
+    #navegacionmovil {
+        grid-area: navegacionmovil;
+        display: block;
+        animation-name: aparecerNavegacionTablet;
+        animation-duration: 3s;
+    }
+    #closenav {
+        grid-area: closenav;
+    }
+    main.servicios {
+        padding-top: 30vh;
+    }
+    main.servicios h1 {
+        margin-top: 15vh;
+        margin-bottom: 3vh;
+    }
+    footer {
+        display: grid; 
+        grid-template-columns: 1fr; 
+        grid-template-rows: 1fr 1fr 1fr; 
+        gap: 0px 0px; 
+        grid-template-areas: 
+        'colaborador'
+        'copyright'
+        'correos';
+    }
+}
+/* Formato para Móvil */
+@media screen and (max-width: 600px) {
+    header {
+        height: 30vh;
+        grid-template-columns: 1fr; 
+        grid-template-rows: 1fr 0fr 0fr 1fr; 
+        gap: 0px 0px; 
+        grid-template-areas: 
+        'logo'
+        'navegacionmovil'
+        'closenav'
+        'navegacion'; 
+    }
+    .logo {
+        grid-area: logo;
+        text-align: center;
+    }
+    .logo img {
+        margin-left: 0%;
+        animation-name: aparecerLogoMovil;
+        animation-duration: 2s;
+    }
+    .navegacion {
+        grid-area: navegacion;
+        width: 100%;
+        height: 200vh;
+        display: none;
+        background-color: var(--blanco);
+    }
+    .navegacion ul {
+        text-align: center;
+        transform: translate(0px, 30px);
+    }
+    .navegacion ul li {
+        display: block;
+        margin: 10px;
+        padding: 5px;
+    }
+    #navegacionmovil {
+        grid-area: navegacionmovil;
+        display: block;
+        text-align: right;
+        animation-name: aparecerNavegacionMovil;
+        animation-duration: 3s;
+    }
+    #closenav {
+        grid-area: closenav;
+    }
+    main.servicios {
+        padding-top: 40vh;
+    }
+    main.servicios h1 {
+        margin-top: 15vh;
+        margin-bottom: 3vh;
+        font-size: 32px;
+    }
+    main.servicios .sectores {
+        margin-left: 2%;
+        margin-right: 2%;
+        padding-bottom: 5%;
+    }
+    main.servicios .sectores .servicio {
+        margin: 2%;
+        width: 96%;
+        height: auto;
+        display: block;
+    }
+    footer {
+        display: grid; 
+        grid-template-columns: 1fr; 
+        grid-template-rows: 1fr 1fr 1fr; 
+        gap: 0px 0px; 
+        grid-template-areas: 
+        'colaborador'
+        'copyright'
+        'correos';
+    }
+}
+/* Animaciones CSS */
+@keyframes aparecerLogoPC {
+    from {
+        opacity: 0;
+        margin-left: 0%;
+    } to {
+        opacity: 1;
+        margin-left: 20%;
+    }
+}
+@keyframes aparecerLogoTablet {
+    from {
+        opacity: 0;
+        margin-left: 0%;
+    } to {
+        opacity: 1;
+        margin-left: 5%;
+    }
+}
+@keyframes aparecerLogoMovil {
+    from {
+        opacity: 0;
+    } to {
+        opacity: 1;
+    }
+}
+@keyframes aparecerNavegacionPC {
+    0% {
+        opacity: 0;
+        margin-right: 0%;
+    }
+    33% {
+        opacity: 0;
+        margin-right: 0%;
+    }
+    100% {
+        opacity: 1;
+        margin-right: 20%;
+    }
+}
+@keyframes aparecerNavegacionTablet {
+    0% {
+        opacity: 0;
+        margin-right: 0%;
+    }
+    33% {
+        opacity: 0;
+        margin-right: 0%;
+    }
+    100% {
+        opacity: 1;
+        margin-right: 10%;
+    }
+}
+@keyframes aparecerNavegacionMovil {
+    0% {
+        opacity: 0;
+    }
+    33% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes aparecerTituloServicios {
+    from {
+        opacity: 0;
+        transform: translate(0px, 40px);
+    } to {
+        transform: translate(0px, 0px);
+        opacity: 1;
+    }
+}
+@keyframes aparecerServicioIzquierda {
+    from {
+        opacity: 0;
+        transform: translate(-40px, 0px);
+    } to {
+        transform: translate(0px, 0px);
+        opacity: 1;
+    }
+}
+@keyframes aparecerServicioDerecha {
+    from {
+        opacity: 0;
+        transform: translate(40px, 0px);
+    } to {
+        transform: translate(0px, 0px);
+        opacity: 1;
+    }
+}
+@keyframes aparecerEmpresaColaboradora {
+    from {
+        opacity: 0;
+        transform: translate(-20px, 0px);
+    } to {
+        transform: translate(0px, 0px);
+        opacity: 1;
+    }
+}
+@keyframes aparecerCopyright {
+    from {
+        opacity: 0;
+        transform: translate(0px, 20px);
+    } to {
+        transform: translate(0px, 0px);
+        opacity: 1;
+    }
+}
+@keyframes aparecerCorreos {
+    from {
+        opacity: 0;
+        transform: translate(20px, 0px);
+    } to {
+        transform: translate(0px, 0px);
+        opacity: 1;
+    }
+}

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<peticiones>
+	<peticion>
+		<numPeticion>1</numPeticion>
+		<nombreCliente>Fernando Barroso Suárez</nombreCliente>
+		<correoCliente>fernadobarrososvigo@gmail.com</correoCliente>
+		<tituloPeticion>Diseñar una página o un sitio web a medida</tituloPeticion>
+		<descripcionPeticion>Montar una página o sitio web para mis estudios musicales.</descripcionPeticion>
+		<fechaPeticion>2024-12-24</fechaPeticion>
+		<responsable>Luis Suárez Castejón</responsable>
+	</peticion>
+</peticiones>

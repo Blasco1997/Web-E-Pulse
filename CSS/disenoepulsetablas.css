@@ -1,0 +1,821 @@
+/*CSS Document*/
+@charset "utf-8";
+/* Variables CSS */
+:root {
+    --rojo: #c00000;
+    --rosado: #f3c4c480;
+    --blanco: white;
+    --negro: black;
+    --negrotransparente: #00000094;
+    --gris: rgb(192, 192, 192);
+    --grisclaro: rgb(224, 224, 224);
+    --azuloscuro: #001c5c;
+    --letra: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+/* Formato para PC */
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: var(--letra);
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    background-color: var(--rosado);
+    overflow-x: hidden;
+}
+#advice {
+    display: none;
+    background-color: var(--negrotransparente);
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index:3;
+}
+#advice .confirmar {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--blanco);
+    border: 3px solid var(--negro);
+    border-radius: 20px;
+    opacity: 0;
+    width: 35vh;
+    height: 25vh;
+    z-index: 3;
+    animation: aparecerAviso 0.1s ease-in-out 0.5s forwards;
+}
+#advice .confirmar h3 {
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-top: 30%;
+    transform: translateY(-80%);
+}
+#advice .confirmar button {
+    margin: 15px;
+    padding: 15px;
+    font-weight: bold;
+    background-color: var(--rojo);
+    color: var(--blanco);
+    border: none;
+    border-radius: 10px;
+    transform: translateY(-60%);
+}
+#advice .confirmar button:hover{
+    background-color: var(--gris);
+}
+header {
+    height: 18vh;
+    position: fixed;
+    z-index: 2;
+    width: 100%;
+    background-color: var(--blanco);
+    border-bottom: 2px solid var(--negro);
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    grid-template-rows: 1fr; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+    'logo navegacion'; 
+}
+.logo {
+    grid-area: logo;
+    vertical-align: middle;
+}
+.logo img {
+    width: 30vh;
+    margin: 10px;
+    margin-left: 20%;
+    animation-name: aparecerLogoPC;
+    animation-duration: 1s;
+}
+.navegacion {
+    grid-area: navegacion;
+    opacity: 0;
+    vertical-align: middle;
+    animation: aparecerNavegacionPC 1s ease-in-out 1s forwards;
+}
+.navegacion ul {
+    text-align: right;
+    margin-top: 18vh;
+    transform: translateY(-11vh);
+    margin-right: 20%;
+}
+.navegacion ul li {
+    display: inline-block;
+    position: relative;
+    margin: 0 10px;
+    padding: 5px;
+}
+.navegacion ul li a {
+    text-decoration: none;
+    color: var(--negro);
+}
+.navegacion ul li.seleccionado, .navegacion ul li a:hover {
+    color: var(--rojo);
+}
+.navegacion ul li span img {
+    transform: translate(0px, 10px);
+}
+.navegacion ul li ul {
+    display: none;
+    position: absolute;
+    min-width: 200px;
+    text-align: left;
+    z-index: 12;
+    background-color: var(--blanco);
+    border: 2px solid var(--negro);
+    transform: translate(0px, -18vh);
+}
+.navegacion ul li:hover > ul {
+    display: block;
+}
+.navegacion ul li ul li {
+    position: relative;
+}
+.navegacion ul li ul li a {
+    color: var(--negro);
+}
+.navegacion ul li ul li a:hover {
+    color: var(--rojo);
+}
+#navegacionmovil, #closenav {
+    display: none;
+    text-align: right;
+    margin-top: 20px;
+    margin-right: 5vh;
+}
+#navegacionmovil:hover, #closenav:hover {
+    color: var(--rojo);
+}
+main.listas {
+    padding-top: 20vh;
+    height: auto;
+}
+main.listas#peticiones {
+    padding-top: 20vh;
+    height: 100vh;
+}
+.avisos p {
+    padding: 10px;
+    width: 50%;
+    margin-top: 10px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--blanco);
+    border: 2px solid var(--gris);
+    text-align: center;
+}
+.buttons .btn-crud {
+    opacity: 0;
+    margin: 30px;
+    padding: 15px;
+    display: inline-block;
+    position: relative;
+    font-weight: bold;
+    background-color: var(--rojo);
+    color: var(--blanco);
+    border: 2px solid var(--negro);
+    margin-left: 50%;
+    transform: translateX(-50%);
+    animation: aparecerBoton 1s ease-in-out 2s forwards;
+}
+.buttons .btn-crud:hover {
+    background-color: var(--gris);
+}
+.buttons #registro, .buttons #edicion, .buttons #importacion {
+    height: 0;
+    opacity: 0;
+    width: 45%;
+    margin-left: 50%;
+    margin-bottom: 50px;
+    transform: translateX(-50%);
+    background-color: var(--blanco);
+    border: 2px solid var(--negro);
+}
+.contacto #contacto {
+    width: 50%;
+    margin-left: 50%;
+    margin-bottom: 20px;
+    transform: translateX(-50%);
+    background-color: var(--blanco);
+    border: 2px solid var(--negro);
+}
+.buttons #registro .campo, .buttons #edicion .campo, .buttons #importacion .campo, .contacto #contacto .campo {
+    text-align: left;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.buttons #registro .campo#cerrarregistro, .buttons #edicion .campo#cerrarregistro, .buttons #importacion .campo#cerrarregistro2, .contacto #contacto .campo#cerrarregistro {
+    width: 20px;
+    float: right;
+    text-align: center;
+    font-weight: bold;
+    padding: 5px;
+    margin-right: 10px;
+    background-color: var(--rojo);
+    color: var(--blanco);
+}
+.buttons #registro .campo#cerrarregistro:hover, .buttons #edicion .campo#cerrarregistro:hover, .buttons #importacion .campo#cerrarregistro2:hover .contacto #contacto .campo#cerrarregistro:hover {
+    background-color: var(--rosado);
+}
+.buttons #registro .campo#cerraredicion, .buttons #edicion .campo#cerraredicion, .buttons #importacion .campo#cerraredicion, .contacto #contacto .campo#cerraredicion {
+    width: 20px;
+    float: right;
+    text-align: center;
+    font-weight: bold;
+    padding: 5px;
+    margin-right: 10px;
+    background-color: var(--rojo);
+    color: var(--blanco);
+}
+.buttons #registro .campo#cerraredicion:hover, .buttons #edicion .campo#cerraredicion:hover, .buttons #importacion .campo#cerraredicion:hover, .contacto #contacto .campo#cerraredicion:hover {
+    background-color: var(--rosado);
+}
+.buttons #registro .campo h1, .buttons #edicion .campo h1, .buttons #importacion .campo h1, .contacto #contacto .campo h1 {
+    font-size: 48px;
+    text-align: center;
+}
+.buttons #registro .campo button, .buttons #edicion .campo button, .buttons #importacion .campo button, .contacto #contacto .campo button {
+    padding: 15px;
+    font-weight: bold;
+    background-color: var(--rojo);
+    color: var(--blanco);
+    border: none;
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+.buttons #registro .campo select, .buttons #edicion .campo select, .buttons #importacion .campo select, .contacto #contacto .campo select {
+    margin-left: 5%;
+    padding: 8px;
+    width: 89.5%;
+    font-weight: bold;
+    background-color: var(--rojo);
+    color: var(--blanco);
+    border: none;
+}
+.buttons #registro .campo label, .buttons #edicion .campo label, .buttons #importacion .campo label, .contacto #contacto .campo label {
+    margin-left: 5%;
+}
+.buttons #registro .campo input, .buttons #edicion .campo input, .buttons #importacion .campo input, .contacto #contacto .campo input {
+    margin-left: 5%;
+    padding: 5px;
+    width: 86%;
+}
+.buttons #registro .campo textarea, .buttons #edicion .campo textarea, .buttons #importacion .campo textarea, .contacto #contacto .campo textarea {
+    margin-left: 5%;
+    padding: 5px;
+    width: 86%;
+    height: 200px;
+    vertical-align: top;
+}
+.buttons #registro .campo select:hover, .buttons #edicion .campo select:hover, 
+.buttons #registro .campo button:hover, .buttons #edicion .campo button:hover, 
+.buttons #importacion .campo select:hover, .buttons #importacion .campo button:hover,
+.contacto #contacto .campo select:hover, .contacto #contacto .campo button:hover {
+    background-color: var(--gris);
+}
+.tablatrabajadores, .tablapeticiones, .tablapublicaciones {
+    width: 90%;
+    opacity: 0;
+    animation: aparecerTabla 1s ease-in-out 4s forwards;
+}
+.tablatrabajadoresmovil, .tablapeticionesmovil, .tablapublicacionesmovil {
+    width: 90%;
+    display: none;
+    opacity: 0;
+    animation: aparecerTabla 1s ease-in-out 4s forwards;
+}
+.tablatrabajadores, .tablapeticiones, .tablapublicaciones,
+.tablatrabajadoresmovil, .tablapeticionesmovil, .tablapublicacionesmovil {
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+.tablatrabajadores table, .tablapeticiones table, .tablapublicaciones table,
+.tablatrabajadoresmovil table, .tablapeticionesmovil table, .tablapublicacionesmovil table {
+    background-color: var(--blanco);
+    border: 2px solid var(--negro);
+    width: 100%;
+}
+.tablatrabajadores table tr th, .tablapeticiones table tr th, .tablapublicaciones table tr th,
+.tablatrabajadoresmovil table tr th, .tablapeticionesmovil table tr th, .tablapublicacionesmovil table tr th {
+    background-color: var(--rojo);
+    color: var(--blanco);
+    border: 2px solid var(--negro);
+    text-align: center;
+    min-width: 100px;
+    max-width: 100px;
+}
+.tablatrabajadores table tr th, .tablapeticiones table tr th, .tablapublicaciones table tr th {
+    padding: 10px;
+}
+.tablatrabajadoresmovil table tr th, .tablapeticionesmovil table tr th, .tablapublicacionesmovil table tr th {
+    padding: 5px;
+}
+.tablatrabajadores table tr td, .tablapeticiones table tr td, .tablapublicaciones table tr td 
+.tablatrabajadoresmovil table tr td, .tablapeticionesmovil table tr td, .tablapublicacionesmovil table tr td {
+    border: 2px solid var(--negro);
+    text-align: center;
+    min-width: 100px;
+}
+.tablatrabajadores table tr td, .tablapeticiones table tr td, .tablapublicaciones table tr td {
+    padding: 10px;
+}
+.tablatrabajadoresmovil table tr td, .tablapeticionesmovil table tr td, .tablapublicacionesmovil table tr td {
+    padding: 5px;
+}
+.tablatrabajadores table tr td form, .tablapeticiones table tr td form, .tablapublicaciones table tr td form, 
+.tablatrabajadoresmovil table tr td form, .tablapeticionesmovil table tr td form, .tablapublicacionesmovil table tr td form {
+    min-width: 120px;
+    display: inline-block;
+    position: relative;
+}
+.tablatrabajadores table tr td input[type='button'], .tablapeticiones table tr td input[type='button'], .tablapublicaciones table tr td input[type='button'],
+.tablatrabajadores table tr td button, .tablapeticiones table tr td button, .tablapublicaciones table tr td button, 
+.tablatrabajadoresmovil table tr td input[type='button'], .tablapeticionesmovil table tr td input[type='button'], .tablapublicacionesmovil table tr td input[type='button'],
+.tablatrabajadoresmovil table tr td button, .tablapeticionesmovil table tr td button, .tablapublicacionesmovil table tr td button {
+    padding: 10px;
+    font-weight: bold;
+    background-color: var(--rojo);
+    color: var(--blanco);
+    border: 2px solid var(--negro);
+}
+.tablatrabajadores table tr td input[type='button']:hover, .tablapeticiones table tr td input[type='button']:hover, .tablapublicaciones table tr td input[type='button']:hover,
+.tablatrabajadores table tr td button:hover, .tablapeticiones table tr td button:hover, .tablapublicaciones table tr td button:hover, 
+.tablatrabajadoresmovil table tr td input[type='button']:hover, .tablapeticionesmovil table tr td input[type='button']:hover, .tablapublicacionesmovil table tr td input[type='button']:hover,
+.tablatrabajadoresmovil table tr td button:hover, .tablapeticionesmovil table tr td button:hover, .tablapublicacionesmovil table tr td button:hover {
+    background-color: var(--gris);
+}
+#paginacion {
+    grid-area: paginacion;
+    width: 30%;
+    padding: 10px;
+    background-color: var(--blanco);
+    border: 2px solid var(--negro);
+    margin: 20px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    border-radius: 20px;
+    text-align: center;
+    opacity: 0;
+    animation: aparecerPaginacion 1s ease-in-out 5s forwards;
+}
+#paginacion p, #paginacion2 p {
+    font-weight: bold;
+    padding: 10px;
+    background-color: var(--rojo);
+    color: var(--blanco);
+    border-radius: 100%;
+    display: inline-block;
+    margin: 0 5px;
+}   
+#paginacion a, #paginacion2 a {
+    text-decoration: none;
+    padding: 10px;
+    font-weight: bold;
+    background-color: var(--blanco);
+    color: var(--negro);
+    margin: 0 5px;
+}
+#paginacion a:hover, #paginacion2 a:hover {
+    background-color: var(--gris);
+    color: var(--blanco);
+    border-radius: 100%;
+}
+#paginacion2 {
+    display: none;
+}
+footer {
+    background-color: var(--azuloscuro);
+    color: var(--blanco);
+    font-weight: bold;
+    text-align: center;
+    padding: 5vh;
+    display: grid; 
+    grid-template-columns: 1fr 1fr 1fr; 
+    grid-template-rows: 1fr; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+    'colaborador copyright correos';
+}
+.colaborador {
+    grid-area: colaborador;
+    opacity: 0;
+    animation: aparecerEmpresaColaboradora 1s ease-in-out 6s forwards;
+}
+.copyright {
+    grid-area: copyright;
+    opacity: 0;
+    animation: aparecerCopyright 1s ease-in-out 7s forwards;
+}
+.copyright p {
+    margin-top: 5vh;
+}
+.correos {
+    grid-area: correos;
+    opacity: 0;
+    animation: aparecerCorreos 1s ease-in-out 8s forwards;
+}
+.colaborador img, .correos img {
+    width: 50%;
+}
+.clear {
+    clear: both;
+}
+/* Formato para Tablet o iPad */
+@media screen and (min-width: 600px) and (max-width: 1024px){
+    header {
+        height: 30vh;
+        display: grid;
+        grid-template-columns: 1fr 0fr 0fr; 
+        grid-template-rows: 1fr 1fr; 
+        gap: 0px 0px; 
+        grid-template-areas: 
+        'logo navegacionmovil closenav'
+        'navegacion navegacion navegacion'; 
+    }
+    .logo {
+        grid-area: logo;
+    }
+    .logo img {
+        margin-left: 5%;
+        animation-name: aparecerLogoTablet;
+        animation-duration: 2s;
+    }
+    .navegacion {
+        grid-area: navegacion;
+        width: 100%;
+        height: 250vh;
+        display: none;
+        background-color: var(--blanco);
+    }
+    .navegacion ul {
+        text-align: center;
+        transform: translate(0px, 30px);
+        margin-right: 5%;
+    }
+    .navegacion ul li {
+        display: block;
+        margin: 10px;
+        padding: 5px;
+    }
+    #navegacionmovil {
+        grid-area: navegacionmovil;
+        display: block;
+        animation-name: aparecerNavegacionTablet;
+        animation-duration: 3s;
+    }
+    #closenav {
+        grid-area: closenav;
+    }
+    main.listas {
+        padding-top: 30vh;
+    }
+    .contacto #contacto {
+        width: 90%;
+        margin-left: 5%;
+        margin-bottom: 50px;
+        transform: translateX(0%);
+    }
+    .buttons #registro, .buttons #edicion, .contacto #contacto {
+        width: 90%;
+        margin-top: 50px;
+    }
+    .buttons #registro .campo h1, .buttons #edicion .campo h1, .contacto #contacto .campo h1 {
+        margin-top: 0px;
+    }
+    .tablatrabajadores, .tablapeticiones, .tablapublicaciones {
+        display: none;
+    }
+    .tablatrabajadoresmovil, .tablapeticionesmovil, .tablapublicacionesmovil {
+        display: block;
+        margin-left: 50%;
+        transform: translate(-50%);
+    }
+    .avisos p {
+        margin-top: 15vh;
+        width: 85%;
+        margin-left: 50%;
+        transform: translate(-50%);
+    }
+    footer {
+        display: grid; 
+        grid-template-columns: 1fr; 
+        grid-template-rows: 1fr 1fr 1fr; 
+        gap: 0px 0px; 
+        grid-template-areas: 
+        'colaborador'
+        'copyright'
+        'correos';
+    }
+    #paginacion {
+        display: none;
+    }
+    #paginacion2 {
+        display: block;
+        grid-area: paginacion;
+        opacity: 0;
+        width: 60%;
+        padding: 10px;
+        background-color: var(--blanco);
+        border: 2px solid var(--negro);
+        margin: 20px;
+        margin-left: 50%;
+        transform: translateX(-50%);
+        border-radius: 20px;
+        text-align: center;
+        animation: aparecerPaginacion 1s ease-in-out 5s forwards;
+    }
+}
+/* Formato para Móvil */
+@media screen and (max-width: 600px) {
+    header {
+        height: 30vh;
+        grid-template-columns: 1fr; 
+        grid-template-rows: 1fr 0fr 0fr 1fr; 
+        gap: 0px 0px; 
+        grid-template-areas: 
+        'logo'
+        'navegacionmovil'
+        'closenav'
+        'navegacion'; 
+    }
+    .logo {
+        grid-area: logo;
+        text-align: center;
+    }
+    .logo img {
+        margin-left: 0%;
+        animation-name: aparecerLogoMovil;
+        animation-duration: 2s;
+    }
+    .navegacion {
+        grid-area: navegacion;
+        width: 100%;
+        height: 200vh;
+        display: none;
+        background-color: var(--blanco);
+    }
+    .navegacion ul {
+        text-align: center;
+        transform: translate(0px, 30px);
+    }
+    .navegacion ul li {
+        display: block;
+        margin: 10px;
+        padding: 5px;
+    }
+    #navegacionmovil {
+        grid-area: navegacionmovil;
+        display: block;
+        text-align: right;
+        animation-name: aparecerNavegacionMovil;
+        animation-duration: 3s;
+    }
+    #closenav {
+        grid-area: closenav;
+    }
+    main.listas {
+        padding-top: 30vh;
+    }
+    #paginacion {
+        display: none;
+    }
+    #paginacion2 {
+        display: block;
+        grid-area: paginacion;
+        opacity: 0;
+        width: 60%;
+        padding: 10px;
+        background-color: var(--blanco);
+        border: 2px solid var(--negro);
+        margin: 10px;
+        margin-left: 50%;
+        transform: translateX(-50%);
+        border-radius: 20px;
+        text-align: center;
+        animation: aparecerPaginacion 1s ease-in-out 5s forwards;
+    }
+    .buttons #registro, .buttons #edicion, .contacto #contacto {
+        width: 90%;
+        margin-top: 100px;
+        margin-left: 50%;
+    }
+    .buttons #registro .campo h1, .buttons #edicion .campo h1, .contacto #contacto .campo h1 {
+        margin-top: 0px;
+    }
+    .servicios {
+        margin-left: 2%;
+        margin-right: 2%;
+        padding-bottom: 5%;
+    }
+    .servicios .servicio {
+        margin: 2%;
+        width: 96%;
+        height: auto;
+        display: block;
+    }
+    .tablatrabajadores, .tablapeticiones, .tablapublicaciones {
+        display: none;
+    }
+    .tablatrabajadoresmovil, .tablapeticionesmovil, .tablapublicacionesmovil {
+        display: block;
+        margin-left: 50%;
+        transform: translateX(-50%);
+    }
+    .tablapeticionesmovil table tr td input[type='button'], .tablapeticionesmovil table tr td button {
+        padding: 5px;
+    }
+    .avisos p {
+        margin-top: 15vh;
+        width: 85%;
+        margin-left: 50%;
+        transform: translate(-50%);
+    }
+    footer {
+        margin-top: 12vh;
+        display: grid; 
+        grid-template-columns: 1fr; 
+        grid-template-rows: 1fr 1fr 1fr; 
+        gap: 0px 0px; 
+        grid-template-areas: 
+        'colaborador'
+        'copyright'
+        'correos';
+    }
+}
+/* Animaciones CSS */
+@keyframes aparecerAviso {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -1000%);
+    } to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+@keyframes aparecerLogoPC {
+    from {
+        opacity: 0;
+        margin-left: 0%;
+    } to {
+        opacity: 1;
+        margin-left: 20%;
+    }
+}
+@keyframes aparecerLogoTablet {
+    from {
+        opacity: 0;
+        margin-left: 0%;
+    } to {
+        opacity: 1;
+        margin-left: 5%;
+    }
+}
+@keyframes aparecerLogoMovil {
+    from {
+        opacity: 0;
+    } to {
+        opacity: 1;
+    }
+}
+@keyframes aparecerNavegacionPC {
+    0% {
+        opacity: 0;
+        margin-right: 0%;
+    }
+    33% {
+        opacity: 0;
+        margin-right: 0%;
+    }
+    100% {
+        opacity: 1;
+        margin-right: 20%;
+    }
+}
+@keyframes aparecerNavegacionTablet {
+    0% {
+        opacity: 0;
+        margin-right: 0%;
+    }
+    33% {
+        opacity: 0;
+        margin-right: 0%;
+    }
+    100% {
+        opacity: 1;
+        margin-right: 10%;
+    }
+}
+@keyframes aparecerNavegacionMovil {
+    0% {
+        opacity: 0;
+    }
+    33% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes aparecerBoton {
+    from {
+        opacity: 0;
+        transform: translate(-50%, 40px);
+    } to {
+        transform: translate(-50%, 0px);
+        opacity: 1;
+    }
+}
+@keyframes aparecerFormularioRegistro {
+    from {
+        height: 0;
+        opacity: 0;
+        transform: translate(-50%, -400px);
+    } to {
+        height: auto;
+        opacity: 1;
+        transform: translate(-50%, 0px);
+    }
+}
+@keyframes aparecerFormularioEdicion {
+    from {
+        height: 0;
+        opacity: 0;
+        transform: translate(-50%, 400px);
+    } to {
+        height: auto;
+        opacity: 1;
+        transform: translate(-50%, 0px);
+    }
+}
+@keyframes desaparecerFormularioRegistro {
+    from {
+        height: auto;
+        opacity: 1;
+        transform: translate(-50%, 0px);
+    } to {
+        height: 0;
+        opacity: 0;
+        transform: translate(-50%, -400px);
+    }
+}
+@keyframes desaparecerFormularioEdicion {
+    from {
+        height: auto;
+        opacity: 1;
+        transform: translate(-50%, 0px);
+    } to {
+        height: 0;
+        opacity: 0;
+        transform: translate(-50%, 200px);
+    }
+}
+@keyframes aparecerTabla {
+    from {
+        opacity: 0;
+        transform: translate(-50%, 40px);
+    } to {
+        transform: translate(-50%, 0px);
+        opacity: 1;
+    }
+}
+@keyframes aparecerPaginacion {
+    from {
+        opacity: 0;
+        transform: translate(-200%, 0px);
+    } to {
+        transform: translate(-50%, 0px);
+        opacity: 1;
+    }
+}
+@keyframes aparecerEmpresaColaboradora {
+    from {
+        opacity: 0;
+        transform: translate(-20px, 0px);
+    } to {
+        transform: translate(0px, 0px);
+        opacity: 1;
+    }
+}
+@keyframes aparecerCopyright {
+    from {
+        opacity: 0;
+        transform: translate(0px, 20px);
+    } to {
+        transform: translate(0px, 0px);
+        opacity: 1;
+    }
+}
+@keyframes aparecerCorreos {
+    from {
+        opacity: 0;
+        transform: translate(20px, 0px);
+    } to {
+        transform: translate(0px, 0px);
+        opacity: 1;
+    }
+}

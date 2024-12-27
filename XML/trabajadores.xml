@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<trabajadores>
+	<trabajador>
+		<idTrabajador>1</idTrabajador>
+		<nombre>Luis Suárez Castejón</nombre>
+		<usuario>luis</usuario>
+		<clave>1234</clave>
+		<puesto>Becario</puesto>
+	</trabajador>
+	<trabajador>
+		<idTrabajador>2</idTrabajador>
+		<nombre>Susana Quezada Mayoral</nombre>
+		<usuario>susana</usuario>
+		<clave>1234</clave>
+		<puesto>Consultor</puesto>
+	</trabajador>
+	<trabajador>
+		<idTrabajador>3</idTrabajador>
+		<nombre>María García Téllez</nombre>
+		<usuario>maria</usuario>
+		<clave>1234</clave>
+		<puesto>Administrador</puesto>
+	</trabajador>
+	<trabajador>
+		<idTrabajador>4</idTrabajador>
+		<nombre>Gabriela Hernández Ibarra</nombre>
+		<usuario>gabriela</usuario>
+		<clave>1234</clave>
+		<puesto>Gestor de pedidos</puesto>
+	</trabajador>
+	<trabajador>
+		<idTrabajador>5</idTrabajador>
+		<nombre>Martín Gutiérrez Domínguez</nombre>
+		<usuario>martin</usuario>
+		<clave>1234</clave>
+		<puesto>Administrador</puesto>
+	</trabajador>
+	<trabajador>
+		<idTrabajador>6</idTrabajador>
+		<nombre>Eduardo Rodríguez Mendoza</nombre>
+		<usuario>eduardo</usuario>
+		<clave>1234</clave>
+		<puesto>Consultor</puesto>
+	</trabajador>
+	<trabajador>
+		<idTrabajador>7</idTrabajador>
+		<nombre>José Fernando Sánchez Soto</nombre>
+		<usuario>josefernando</usuario>
+		<clave>1234</clave>
+		<puesto>Consultor</puesto>
+	</trabajador>
+	<trabajador>
+		<idTrabajador>8</idTrabajador>
+		<nombre>Luisa Miranda Huertas</nombre>
+		<usuario>Luisa</usuario>
+		<clave>1234</clave>
+		<puesto>Gestor de pedidos</puesto>
+	</trabajador>
+	<trabajador>
+		<idTrabajador>9</idTrabajador>
+		<nombre>Andrés Ibáñez Contreras</nombre>
+		<usuario>andres</usuario>
+		<clave>1234</clave>
+		<puesto>Administrador</puesto>
+	</trabajador>
+	<trabajador>
+		<idTrabajador>10</idTrabajador>
+		<nombre>Ignacio Bastida Cuéllar</nombre>
+		<usuario>ignacio</usuario>
+		<clave>1234</clave>
+		<puesto>Gestor de pedidos</puesto>
+	</trabajador>
+	<trabajador>
+		<idTrabajador>11</idTrabajador>
+		<nombre></nombre>
+		<usuario></usuario>
+		<clave>1234</clave>
+		<puesto></puesto>
+	</trabajador>
+</trabajadores>

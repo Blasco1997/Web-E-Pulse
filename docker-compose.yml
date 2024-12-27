@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  php:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:80"
+    volumes:
+      - ./appdocker:/var/www/html
+    depends_on:
+      - localhost
+
+  localhost:
+    image: mysql:8.0
+    container_name: mysql-container
+    environment:
+      MYSQL_ROOT_PASSWORD: Docker@2025
+      MYSQL_DATABASE: epulse
+      MYSQL_USER: dockeruser
+      MYSQL_PASSWORD: Docker@2025
+    ports:
+      - "3307:3307"
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:
